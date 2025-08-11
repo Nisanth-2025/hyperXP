@@ -56,7 +56,7 @@ export async function handler(event, context) {
 
     // Verify payment signature
     const expectedSignature = crypto
-      .createHmac('sha256', process.env.RAZORPAY_API_SECRET || '54jzFLHUd691JvZiB0Bwoa0B')
+      .createHmac('sha256', process.env.RAZORPAY_API_SECRET)
       .update(`${razorpay_order_id}|${razorpay_payment_id}`)
       .digest('hex');
 
