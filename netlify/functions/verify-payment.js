@@ -4,14 +4,14 @@ import crypto from 'crypto';
 
 // Initialize Supabase
 const supabase = createClient(
-  process.env.SUPABASE_URL || 'https://fmbdbzptumkphheqhrgt.supabase.co',
-  process.env.SUPABASE_SERVICE_ROLE || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZtYmRienB0dW1rcGhoZXFocmd0Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1NDkxODIyNCwiZXhwIjoyMDcwNDk0MjI0fQ.ThGeYUgia-MCeRMrrUnbdmQGPGrIklOnZG1xvkBT6AU'
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_SERVICE_ROLE
 );
 
 // Initialize Razorpay
 const razorpay = new Razorpay({
-  key_id: process.env.RAZORPAY_API_KEY || 'rzp_test_apasTFRm3P1Vuw',
-  key_secret: process.env.RAZORPAY_API_SECRET || '54jzFLHUd691JvZiB0Bwoa0B'
+  key_id: process.env.RAZORPAY_API_KEY,
+  key_secret: process.env.RAZORPAY_API_SECRET
 });
 
 export async function handler(event, context) {
