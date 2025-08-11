@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon backend/server.js",
     "dev": "netlify dev",
-    "build": "echo 'Building for Netlify Functions...'",
+    "build": "echo 'Netlify Functions build complete'",
     "prod": "node backend/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -27,6 +27,6 @@
     "netlify-cli": "^17.0.0"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": "18.x"
   }
 }
