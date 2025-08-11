@@ -7,13 +7,13 @@
 # Environment variables (set these in Netlify dashboard)
 [build.environment]
   NODE_VERSION = "18"
-  // Change this:
+  
 const supabase = createClient(
   process.env.SUPABASE_URL || 'https://fmbdbzptumkphheqhrgt.supabase.co',
   process.env.SUPABASE_SERVICE_ROLE || 'long_key_here'
 );
 
-// To this:
+
 const supabase = createClient(
   process.env.SUPABASE_URL,
   process.env.SUPABASE_SERVICE_ROLE
@@ -44,4 +44,5 @@ const supabase = createClient(
   from = "/*"
   to = "/index.html"
   status = 200
+
 
