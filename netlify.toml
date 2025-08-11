@@ -2,22 +2,10 @@
 [build]
   publish = "."
   functions = "netlify/functions"
-  command = "npm run build"
 
-# Environment variables (set these in Netlify dashboard)
+# Environment variables
 [build.environment]
   NODE_VERSION = "18"
-  
-const supabase = createClient(
-  process.env.SUPABASE_URL || 'https://fmbdbzptumkphheqhrgt.supabase.co',
-  process.env.SUPABASE_SERVICE_ROLE || 'long_key_here'
-);
-
-
-const supabase = createClient(
-  process.env.SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_ROLE
-);
 
 # Security headers
 [[headers]]
@@ -27,22 +15,3 @@ const supabase = createClient(
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-
-# Cache static assets
-[[headers]]
-  for = "*.js"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000"
-
-[[headers]]
-  for = "*.css"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000"
-
-# For SPA routing
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
-
