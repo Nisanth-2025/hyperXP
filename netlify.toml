@@ -1,0 +1,37 @@
+# Netlify Configuration for Hyper XP Tournament System
+[build]
+  publish = "."
+  functions = "netlify/functions"
+  command = "npm run build"
+
+# Environment variables (set these in Netlify dashboard)
+[build.environment]
+  NODE_VERSION = "18"
+  SUPABASE_URL = "https://fmbdbzptumkphheqhrgt.supabase.co"
+  RAZORPAY_API_KEY = "rzp_test_apasTFRm3P1Vuw"
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Cache static assets
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+# For SPA routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
